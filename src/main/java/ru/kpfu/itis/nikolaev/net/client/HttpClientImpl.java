@@ -1,4 +1,4 @@
-package ru.kpfu.itis.nikolaev.net;
+package ru.kpfu.itis.nikolaev.net.client;
 
 import java.util.Map;
 

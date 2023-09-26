@@ -1,4 +1,4 @@
-package ru.kpfu.itis.nikolaev.net;
+package ru.kpfu.itis.nikolaev.net.client;
 
 import com.google.gson.Gson;
 
@@ -15,8 +15,8 @@ import java.util.Scanner;
 
 public class HttpClient implements HttpClientImpl {
 
-    String getUrl = "https://jsonplaceholder.typicode.com/posts";
-    String postUrl = "https://gorest.co.in/public/v1/users";
+    static String getUrl = "https://jsonplaceholder.typicode.com/posts";
+    static String postUrl = "https://gorest.co.in/public/v1/users";
     static Map<String, String> user;
 
     public static void main(String[] args) {
@@ -34,6 +34,7 @@ public class HttpClient implements HttpClientImpl {
 
         String status = sc.nextLine();
         user.put("status", status);
+        new HttpClient().post(HttpClient.getUrl, user);
     }
 
     @Override
