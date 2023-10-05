@@ -1,3 +1,4 @@
+/*
 package ru.kpfu.itis.nikolaev.net.filter;
 
 import javax.servlet.*;
@@ -39,3 +40,4 @@ public class LoggingFilter implements Filter {
         Filter.super.destroy();
     }
 }
+*/

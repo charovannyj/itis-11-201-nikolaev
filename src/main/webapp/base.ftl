@@ -6,8 +6,8 @@
 
 <body>
 <div id="header">
-    <H3>Header</H3>
-    <H3>Head</H3>
+    <H3>Headerrr</H3>
+    <H3>Hea</H3>
 </div>
 
 <div class="content1">

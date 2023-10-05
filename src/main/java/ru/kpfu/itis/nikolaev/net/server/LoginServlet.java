@@ -13,7 +13,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.sendRedirect("login.html");
+        resp.sendRedirect("users.ftl");
     }
 
     @Override

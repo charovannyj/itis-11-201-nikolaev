@@ -1,7 +1,7 @@
 <html lang="en">
 <#include "base.ftl">
 
-<#macro title>Users</#macro>
+<#macro title>USers</#macro>
 
 <#macro content>
     Hello,
