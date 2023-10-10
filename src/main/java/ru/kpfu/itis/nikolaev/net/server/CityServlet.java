@@ -27,15 +27,17 @@ public class CityServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String city = req.getParameter("city");
         weather = new HttpClient().get("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + API, null);
-        HttpSession session = req.getSession();
+        PrintWriter pw = resp.getWriter();
+        pw.print(weather);
+        /*HttpSession session = req.getSession();
         setAttributesForSession(session);
-        resp.sendRedirect("weather.ftl");
+        req.getRequestDispatcher("weather.ftl").forward(req,resp);*/
     }
 
     private void setAttributesForSession(HttpSession httpSession) {
-        JSONObject json = new JSONObject(weather);
+        /*JSONObject json = new JSONObject(weather);
         httpSession.setAttribute("temperature", json.getJSONObject("weather").getBigDecimal("temp"));
         httpSession.setAttribute("humidity", json.getJSONObject("main").getBigDecimal("humidity"));
-        httpSession.setAttribute("description", json.getJSONArray("weather").getJSONObject(0).getString("description"));
+        httpSession.setAttribute("description", json.getJSONArray("weather").getJSONObject(0).getString("description"));*/
     }
 }

@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "calculatorServlet", urlPatterns = "/calculate")
 public class CalculatorServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.sendRedirect("index.ftl");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        //resp.sendRedirect("index.ftl");
+        req.getRequestDispatcher("index.ftl").forward(req, resp);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Получить значения чисел из параметров запроса
@@ -28,6 +29,7 @@ public class CalculatorServlet extends HttpServlet {
         request.setAttribute("result", sum);
 
         // Перенаправить на страницу с результатом
-        request.getRequestDispatcher("/result.ftl").forward(request,response);
+        //request.getRequestDispatcher("resultServlet").forward(request, response);
+        response.sendRedirect("/resultServlet");
     }
 }

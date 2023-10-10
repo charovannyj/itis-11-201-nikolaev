@@ -39,5 +39,4 @@ public class LoggingFilter implements Filter {
     public void destroy() {
         Filter.super.destroy();
     }
-}
-*/
+}*/

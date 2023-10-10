@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "resultServlet", urlPatterns = "/resultservlet")
+@WebServlet(name = "resultServlet", urlPatterns = "/resultServlet")
 public class ResultServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         req.getRequestDispatcher("result.ftl").forward(req,resp);
@@ -25,9 +25,9 @@ public class ResultServlet extends HttpServlet {
         int sum = num3 + num4;
 
         // Установить результат в атрибут запроса
-        request.setAttribute("result", sum);
+        request.setAttribute("resultu", sum);
 
         // Перенаправить на страницу с результатом
-        request.getRequestDispatcher("/result").forward(request, response);
+        request.getRequestDispatcher("resultt.ftl").forward(request, response);
     }
 }

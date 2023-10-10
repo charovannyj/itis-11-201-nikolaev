@@ -2,9 +2,10 @@
 <#macro title>Weather page</#macro>
 
 <#macro content>
-    Temperature: ${temperature}
+    <#--Temperature: ${temperature}
     Description: ${description}
-    Humidity: ${humidity}
+    Humidity: ${humidity}-->
+    City: ${weather}
 </#macro>
 
 </html>
