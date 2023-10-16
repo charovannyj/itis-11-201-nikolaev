@@ -1,11 +1,15 @@
 <html lang="en">
-<#macro title>Weather page</#macro>
+<#include "base.ftl">
+
+<#macro title>Weather</#macro>
+<#macro header>WEATHER</#macro>
 
 <#macro content>
-    <#--Temperature: ${temperature}
+    Temperature: ${temperature}°C
+    <br>
     Description: ${description}
-    Humidity: ${humidity}-->
-    City: ${weather}
+    <br>
+    Humidity: ${humidity}%
 </#macro>
 
 </html>

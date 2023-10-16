@@ -1,4 +1,3 @@
-/*
 package ru.kpfu.itis.nikolaev.net.filter;
 
 import javax.servlet.*;
@@ -32,4 +31,4 @@ public class AuthenticationFilter implements Filter {
         Filter.super.destroy();
     }
 }
-*/
+

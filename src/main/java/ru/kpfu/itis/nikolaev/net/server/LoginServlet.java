@@ -20,20 +20,19 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if (LOGIN.equalsIgnoreCase(login) && PASSWORD.equals(password)) {
-            // session
+        if (login.equals(LOGIN)&&password.equals(PASSWORD)){
             HttpSession httpSession = req.getSession();
             httpSession.setAttribute("username", login);
             httpSession.setMaxInactiveInterval(60 * 60);
 
-            // cookie
             Cookie cookie = new Cookie("username", login);
             cookie.setMaxAge(24 * 60 * 60);
             resp.addCookie(cookie);
 
             resp.sendRedirect("/city");
-        } else {
-            resp.sendRedirect("/login");
+        }
+        else{
+            doGet(req, resp);
         }
     }
 }

@@ -7,10 +7,10 @@
 <body>
 
 <form action="city" method="post">
-    Login:
+    City:
     <input type="text" name="city"/>
     <br>
-    <input type="submit" value="login">
+    <input type="submit" value="enter">
 </form>
 
 </body>

@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "resultServlet", urlPatterns = "/resultServlet")
+@WebServlet(name = "resultServlet", urlPatterns = "/resultservlet")
 public class ResultServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        req.getRequestDispatcher("result.ftl").forward(req,resp);
+        resp.sendRedirect("result.ftl");
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String num3Str = request.getParameter("num3");
@@ -25,9 +25,9 @@ public class ResultServlet extends HttpServlet {
         int sum = num3 + num4;
 
         // Установить результат в атрибут запроса
-        request.setAttribute("resultu", sum);
+        request.setAttribute("result", sum);
 
         // Перенаправить на страницу с результатом
-        request.getRequestDispatcher("resultt.ftl").forward(request, response);
+        request.getRequestDispatcher("/resultt.ftl").forward(request, response);
     }
 }

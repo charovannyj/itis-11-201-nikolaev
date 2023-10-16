@@ -14,6 +14,7 @@ import java.util.Enumeration;
 
 @WebServlet(name = "cityServlet", urlPatterns = "/city")
 public class CityServlet extends HttpServlet {
+    Float kelvinCelsius = 273.15F;
     String weather;
     String API = "630038a3144129b2eca8f66b4ec7ec82";
 
@@ -27,17 +28,17 @@ public class CityServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String city = req.getParameter("city");
         weather = new HttpClient().get("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + API, null);
-        PrintWriter pw = resp.getWriter();
-        pw.print(weather);
-        /*HttpSession session = req.getSession();
-        setAttributesForSession(session);
-        req.getRequestDispatcher("weather.ftl").forward(req,resp);*/
+        HttpSession session = req.getSession();
+        setAttributes(session);
+        /*PrintWriter pw = resp.getWriter();
+        pw.println(session.getAttribute("temperature"));*/
+        resp.sendRedirect("weather.ftl");
     }
 
-    private void setAttributesForSession(HttpSession httpSession) {
-        /*JSONObject json = new JSONObject(weather);
-        httpSession.setAttribute("temperature", json.getJSONObject("weather").getBigDecimal("temp"));
-        httpSession.setAttribute("humidity", json.getJSONObject("main").getBigDecimal("humidity"));
-        httpSession.setAttribute("description", json.getJSONArray("weather").getJSONObject(0).getString("description"));*/
+    private void setAttributes(HttpSession httpSession) {
+        JSONObject json = new JSONObject(weather);
+        httpSession.setAttribute("temperature", json.getJSONObject("main").getFloat("temp")-kelvinCelsius);
+        httpSession.setAttribute("humidity", json.getJSONObject("main").getInt("humidity"));
+        httpSession.setAttribute("description", json.getJSONArray("weather").getJSONObject(0).getString("description"));
     }
 }
